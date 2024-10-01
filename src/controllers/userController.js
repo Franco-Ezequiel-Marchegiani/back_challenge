@@ -10,9 +10,19 @@ export const registerUser = async (req, res) => {
       if (!username || !email || !password) {
         return res.status(400).json({ error: 'Todos los campos son obligatorios' });
       }
+
+      // Consulta para verificar si el email ya existe
+      const checkEmailQuery = 'SELECT * FROM users WHERE email = ?';
+      
+      const [existingUser] = await connection.execute(checkEmailQuery, [email]);
+
+      if (existingUser.length > 0) {
+        // Si se encuentra un usuario con el mismo email
+        return res.status(400).json({ error: 'El email ya está registrado' });
+      }
       // Validación de contraseña: alfanumérica, que incluya mayuscula y minúscula, entre 6 y 20 caracteres
 
-      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,20}$/;
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{6,20}$/;
       //const passwordRegex = /^(?=.*[!#$%&/()=<>?@\\^{}[\]~])[A-Za-z0-9!#$%&/()=<>?@\\^{}[\]~]{6,20}$/; // Validación de alfanumérica, caracteres, y caracter especial
       console.log(passwordRegex);
       console.log(!passwordRegex.test(password));
@@ -21,16 +31,7 @@ export const registerUser = async (req, res) => {
         return res.status(400).json({ error: 'La contraseña debe tener entre 6 y 20 caracteres y contener al menos una letra mayúscula, una letra minúscula y un número' });
       }
 
-    // Consulta para verificar si el email ya existe
-    const checkEmailQuery = 'SELECT * FROM users WHERE email = ?';
     
-    const [existingUser] = await connection.execute(checkEmailQuery, [email]);
-
-    if (existingUser.length > 0) {
-      // Si se encuentra un usuario con el mismo email
-      return res.status(400).json({ error: 'El email ya está registrado' });
-    }
-
     // Consulta SQL para insertar un nuevo usuario
     const query = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
 

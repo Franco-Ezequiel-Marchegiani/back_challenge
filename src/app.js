@@ -2,12 +2,14 @@
 import dotenv from 'dotenv' //Importamos las variables de entorno
 import express from 'express'
 import userRoutes from './routes/userRoutes.js'
+import cors from 'cors'
 
 dotenv.config({ path: '../.env' });
 
 const app = express();
+app.use(cors())
 //Establecemos el puerto
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5056;
 
 // Middleware
 app.use(express.json());
