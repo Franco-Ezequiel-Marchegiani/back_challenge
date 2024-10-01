@@ -1,4 +1,5 @@
 import connection from '../config/database.js'; // Asegúrate de que esto apunte a tu conexión a la base de datos
+import { randomBytes } from 'crypto';
 
 export const loginUser = async (req, res) => {
     //Recibo la información que pasó el usuario por el request
@@ -17,8 +18,11 @@ export const loginUser = async (req, res) => {
     
     // Comprobamos si se encontró algún usuario
     if (rows.length > 0) {
+      // Generamos un token aleatorio
+      const token = randomBytes(16).toString('hex'); // Genera un token de 32 caracteres en formato hexadecimal
+
       // Devolvemos un mensaje de ok si salió todo bien, seguido de la info del usuario sin su pass
-      return res.status(200).json({ message: 'ok', user: rows[0] });
+      return res.status(200).json({ message: 'ok', user: rows[0], token  });
     } else {
       return res.status(401).json({ error: 'Credenciales incorrectas, intente nuevamente' });
     }
