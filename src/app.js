@@ -3,7 +3,7 @@ import dotenv from 'dotenv' //Importamos las variables de entorno
 import express from 'express'
 import userRoutes from './routes/userRoutes.js'
 import cors from 'cors'
-
+// a
 dotenv.config({ path: '../.env' });
 
 const app = express();
