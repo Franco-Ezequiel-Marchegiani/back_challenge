@@ -13,22 +13,22 @@ Para que todo el script funcione, deberás ejecutar estos comandos para crear un
 - USE info_user;
 
 - (Creamos la tabla de users con estas columnas e info:)
-- CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+***CREATE TABLE users (***
+    ***id INT AUTO_INCREMENT PRIMARY KEY,***
+    ***username VARCHAR(50) NOT NULL,***
+    ***email VARCHAR(100) NOT NULL UNIQUE,***
+    ***password VARCHAR(255) NOT NULL,***
+    ***created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP***
+***);***
 
 ### Configuración .env file:
 
-Asignar los valores correspondientes para configurar la base de datos, puedes reemplazar los valores del archivo .env, o colocarlo directamente en "src > config > database.js"
+Asignar los valores correspondientes para configurar la base de datos, puedes reemplazar los valores del archivo .env, o colocarlo directamente en ***src > config > database.js***
 
-**DB_HOST=localhost**
-**DB_USER=root**
-**DB_PASSWORD=tuClave**
-**DB_NAME=tuInfoName**
+**-DB_HOST=localhost**
+**-DB_USER=root**
+**-DB_PASSWORD=tuClave**
+**-DB_NAME=tuInfoName**
 
 ### Scripts ejecución
 
