@@ -21,16 +21,17 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+```
 
 ### Configuración .env file:
 
 Asignar los valores correspondientes para configurar la base de datos, puedes reemplazar los valores del archivo .env, o colocarlo directamente en ***src > config > database.js***
-
-(`**- DB_HOST=localhost**  `)
-**-DB_USER=root**
-**-DB_PASSWORD=tuClave**
-**-DB_NAME=tuInfoName**
-
+```bash
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=tuClave
+DB_NAME=tuInfoName
+```
 ### Scripts ejecución
 
 Una vez instalado y configurado todo, acceder a la carpeta "src" de esta manera:
@@ -46,6 +47,7 @@ Accedemos primero a la carpeta "src", para ejecutar el archivo "app.js", que se 
 
 Una vez hecho esto, se mostrará un mensaje en consola diciendo:
 
-**Servidor corriendo en el puerto 5056** (cambiar N° de puerto a gusto, por defecto levanta el proyecto en el puerto N° 5056)
+**Servidor corriendo en el puerto 5056** 
+(cambiar N° de puerto a gusto, por defecto levanta el proyecto en el puerto N° 5056)
 
 **Inglés/English:**
