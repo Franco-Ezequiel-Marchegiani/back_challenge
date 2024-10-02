@@ -3,6 +3,7 @@ import { registerUser } from '../controllers/userController.js'; // Importar con
 import { homeController } from '../controllers/homeController.js';
 import { getBreweries, getBreweriesByCity, getBreweriesByID, getCities } from '../controllers/breweryController.js';
 import { loginUser } from '../controllers/loginUserController.js';
+import { removeUser } from '../controllers/RemoveUserController.js';
 
 const router = Router();
 
@@ -26,5 +27,7 @@ router.post('/register', registerUser);
 
 //Con esta ruta el usuario envía mail y pass, y se verifica si está ok
 router.post('/login', loginUser);
+
+router.post('/remove_user', removeUser);
 
 export default router;
