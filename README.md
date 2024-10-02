@@ -27,10 +27,10 @@ CREATE TABLE users (
 
 Asignar los valores correspondientes para configurar la base de datos, puedes reemplazar los valores del archivo .env, o colocarlo directamente en ***src > config > database.js***
 ```bash
-***DB_HOST=localhost***
-***-DB_USER=root***
-***-DB_PASSWORD=tuClave***
-***-DB_NAME=tuInfoName***
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=tuClave
+DB_NAME=tuInfoName
 ```
 ### Scripts ejecución
 
