@@ -1,23 +1,23 @@
 /* eslint-disable no-undef */
-import dotenv from 'dotenv' //Importamos las variables de entorno
+import dotenv from 'dotenv'
 import express from 'express'
 import userRoutes from './routes/userRoutes.js'
 import cors from 'cors'
-// a
+
 dotenv.config({ path: '../.env' });
 
 const app = express();
 app.use(cors())
-//Establecemos el puerto
+//Set the number of the Port
 const port = process.env.PORT || 5056;
 
 // Middleware
 app.use(express.json());
 
-// Rutas
+// Routes
 app.use('/', userRoutes);
 
-// Iniciar servidor
+// 
 app.listen(port, () => {
-  console.log(`Servidor corriendo en el puerto ${port}`);
+  console.log(`Server running on port: ${port}`);
 });
